@@ -163,6 +163,7 @@ if __name__ == "__main__":
         subnetrange.append(subneting_range(i))
 
     for i in range(len(subnetrange)):                               #Subnetting function
+        print ('{}.{}.{}.{} {}'.format(octet1, octet2, octet3, octet4, subnetmasks[i]))
         octet4 = octet4 + subnetrange[i]
         while octet4 > 255:
             octet4 = octet4 - 256
@@ -173,4 +174,5 @@ if __name__ == "__main__":
                 while octet2 > 255:
                     octet2 = octet2 - 256
                     octet1 += 1
-        print ('{}.{}.{}.{} {}'.format(octet1, octet2, octet3, octet4, subnetmasks[i]))
+    input()
+    
