@@ -162,12 +162,13 @@ if __name__ == "__main__":
     for i in subnetmasks:
         subnetrange.append(subneting_range(i))
 
+    print('')
+    print(format_string.format(name='Name', address='Address'))
+    print('-' * 40)
+
     for i in range(len(subnetrange)):                               #Subnetting function
-        print ()
-        print ("Subnet", str(i) + ": ", end="")
-        print ('{}.{}.{}.{} {}'.format(octet1, octet2, octet3, octet4, subnetmasks[i]))
-        print ("First host: ", end="")
-        print ('{}.{}.{}.{} {}'.format(octet1, octet2, octet3, (octet4 + 1), subnetmasks[i]))
+        print(format_string.format(name='Subnet', address='{}.{}.{}.{} {}'.format(octet1, octet2, octet3, octet4, subnetmasks[i])))
+        print(format_string.format(name='First Host', address='{}.{}.{}.{}'.format(octet1, octet2, octet3, (octet4 + 1))))
         octet4 = octet4 + subnetrange[i]
         while octet4 > 255:
             octet4 = octet4 - 256
@@ -178,11 +179,7 @@ if __name__ == "__main__":
                 while octet2 > 255:
                     octet2 = octet2 - 256
                     octet1 += 1
-        print ("Last host: ", end="")
-        print ('{}.{}.{}.{} {}'.format(octet1, octet2, octet3, (octet4 - 2), subnetmasks[i]))
-        print ("Broadcast Address: ", end="")
-        print ('{}.{}.{}.{} {}'.format(octet1, octet2, octet3, (octet4 - 1), subnetmasks[i]))
-
+        print(format_string.format(name='Last Host', address='{}.{}.{}.{}'.format(octet1, octet2, octet3, (octet4 - 2))))
+        print(format_string.format(name='Broadcast Address', address='{}.{}.{}.{}'.format(octet1, octet2, octet3, (octet4 - 1))))
+        print ('')
     input()
-    
-    
